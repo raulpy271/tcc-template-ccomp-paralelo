@@ -11,7 +11,7 @@ Para compilar o projeto instale as dependências:
  - TeX Live (eg: `sudo apt install texlive-full`)
  - latexmk (eg: `sudo apt install latexmk`)
 
-Utilizar a pacote `texlive-full` é a solução mais fácil, porém é um pacote grande, é possível tentar fazer uma instalação mais customizada, com apenas as dependências necessárias. Caso queira iniciar com uma instalação customizada, sugiro inicar com os seguintes pacotes:
+Utilizar a pacote `texlive-full` é a solução mais fácil, porém é um pacote grande, é possível tentar fazer uma instalação mais customizada, com apenas as dependências necessárias. Caso queira iniciar com uma instalação customizada, sugiro iniciar com os seguintes pacotes:
 
 ```sh
 sudo apt install texlive
