@@ -1,0 +1,42 @@
+% ----------------------------------------------------------
+\chapter{Introdução}\label{cap1}
+% ----------------------------------------------------------
+
+No início da Rede Mundial de Computadores, os sites eram compostos principalmente de simples documentos na \Gls{HTML}, com pouca lógica, dinamicidade e interatividade. Para trazer dinamicidade e outras funcionalidades, a indústria convergiu para o uso da linguagem de programação \Gls{JS} \cite{rise_of_js}. No entanto, com a popularização da Internet, e da necessidade de páginas mais complexas, surge o desejo de utilizar novas tecnologias que poderiam superar o JS em alguns aspectos, sendo a performance o principal aspecto desejado, dentre estas ferramentas, são notáveis: asm.js e \Gls{Wasm} \cite{wasm_predecessors}.
+
+\section{Questões de Pesquisa}
+
+O desenvolvimento desse trabalho foi elaborado com objetivo de responder as seguintes questões de pesquisa:
+
+\begin{description}
+    \item[QP01] Qual dos dois compiladores estudados emite um binário com tamanho menor?
+    \item[QP02] Entre os dois, qual produz um binário que utiliza menos memória, considerando o tamanho inicial da memória igual para ambos?
+    \item[QP03] Entre ambos, qual produz um binário com tempo de execução menor?
+\end{description}
+
+\section{Objetivos}
+
+Os objetivos deste trabalho são subdivididos em objetivos gerais e objetivos específicos. Estes são:
+
+\subsection{Objetivo Geral}
+
+Realizar comparação entre os compiladores Emscripten e Cheerp considerando o tamanho do binário emitido pelas duas ferramentas, a quantidade de memória utilizada pelo binário, e o tempo de execução em diferentes \textit{browsers}.
+
+\subsection{Objetivos Específicos}
+
+Os objetivos específicos são:
+
+\begin{itemize}
+    \item Compilar para WebAssembly os algoritmos do \textit{benchmark} Polybench/C\cite{polybench}, permitindo que os binários finais sejam utilizados para comparar a performance dos compiladores Emscripten e Cheerp.
+    \item Comparar o tamanho do binário resultante de cada compilador ao compilar os algoritmos do Polybench/C.
+    \item Executar no Google Chrome e Firefox cada algoritmo compilado para WebAssembly, capturar e analisar o uso de memória e tempo de execução de cada um dos algoritmos.
+\end{itemize}
+
+\section{Justificativa}
+
+A execução deste trabalho torna-se justificável devido a baixa quantidade de pesquisas que realizam comparação entre as ferramentas, Emscripten e Cheerp. Há também textos de \textit{blogs} que realizam essa comparação, no entanto, o rigor cientifico não é muito presente nos mesmos, como será visto na seção de Trabalhos Correlatos, \ref{correlatos}.
+
+\section{Organização do Trabalho}
+
+Esse trabalho é organizado como segue: No capítulo \ref{fundamentacao} é apresentado os conceitos base para melhor entendimento das tecnologias abordadas. Portanto, o capítulo apresenta uma introdução sobre a plataforma WebAssembly, seguida por duas seções informativas sobre os dois compiladores utilizados. Ao final do capítulo é também listado as principais pesquisas relacionadas. No capítulo seguinte, \ref{delineamento}, é descrito os passos necessários para realizar o experimento desejado assim como o ambiente adotado para execução da pesquisa. No capítulo \ref{resultados} é apresentado os dados coletados no experimento executado, em seguida é feito uma análise dos dados visando responder as questões de pesquisa. Por fim, no capítulo \ref{conclusoes} é sintetizado o que foi realizado na pesquisa assim como os resultados obtidos ao final da análise de dados.
+

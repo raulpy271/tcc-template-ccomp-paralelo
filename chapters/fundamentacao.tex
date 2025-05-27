@@ -1,0 +1,37 @@
+
+\chapter{Fundamentação Teórica}\label{fundamentacao}
+
+Este capítulo apresenta os conceitos básicos que envolvem o tema da pesquisa, assim como descreve os trabalhos correlatos a este, para melhor entendimento do contexto em que se encontra as pesquisas em WebAssembly.
+
+\section{WebAssembly}
+
+Desde quando JS tornou-se padrão nos navegadores, houve a tentativa de utilizar outras linguagens e ferramentas com certas vantagens sobre JS, são exemplos Java Applets e ActiveX, ambas não são mais utilizadas nas tecnologias que formam a web moderna, \gls{HTML5}, ECMAScript standard, WebGL, entre outras \cite{wasm_predecessors}.
+
+Com esse conceito, pode-se dinamicamente crescer a quantidade de memória disponível especificando a quantidade de páginas de memória extra que se deseja, isto pode ser feito utilizando chamada de métodos via JS, ou utilizando a instrução \code{memory.grow}, definida pela máquina virtual. Além desta instrução, há várias outras instruções que operam sobre a memória, podem ser vistas em \thiscite{meminstructions}{Webassembly Community Group}. Por fim, diferente da memória do JS, não existe coletor de lixo
+\footnote{O coletor de lixo, também chamado de \textit{garbage collector}, é um mecanismo de gerenciamento de memória automático, ele monitora o uso de memória e decide quando libera-la. É uma tecnologia presente em várias linguagens de \textit{scripts}, como o próprio JS. Atualmente, a VM do WebAssembly não possui coletor de lixo, no entanto, há uma discussão aberta entre os criadores do WebAssembly para permitir a integração com o coletor de lixo do JS, a discussão pode ser vista em \href{https://github.com/WebAssembly/gc}{github.com/WebAssembly/gc}.}
+nem formas de diminuir o tamanho da memória dinamicamente \cite{definitive_guide}.
+
+\subsection{Instalação e Uso}
+
+Para finalizar o tópico sobre este compilador, será apresentado a sua instalação e realizado a compilação do mesmo exemplo utilizado para o compilador anterior, permitindo perceber a diferença no processo de compilação das duas ferramentas e a diferença no \textit{bytecode} gerado.
+
+\begin{quadro}
+\caption{Comandos para instalação do Cheerp}
+\begin{lstlisting}
+sudo add-apt-repository ppa:leaningtech-dev/cheerp-ppa
+sudo apt-get update
+sudo apt-get install cheerp-core=3.0-1~focal
+\end{lstlisting}
+\label{instalacao_cheerp}
+\end{quadro}
+
+Neste exemplo, é utilizado o compilador GCC para compilar o algoritmo \code{atax}, o qual faz parte do coleção do PolyBench/C. Neste comando é utilizado o parâmetro \code{-I} duas vezes para adicionar os cabeçalhos \code{utilities/polybench.h} e \code{linear-algebra/kernels/atax/atax.h}. Por fim, é também adicionado para compilação o arquivo \code{utilities/polybench.c} que é necessário para a execução do algoritmo.
+
+\section{Trabalhos correlatos}\label{correlatos}
+
+A busca dos trabalhos que foram citados ou utilizados por esse pesquisa foi realizada no motor de busca Google Scholar, este foi escolhido pois seleciona trabalhos de diversas bases, o que aumenta a quantidade de resultados. Neste sistema de busca, para encontrar trabalhos correlatos foi utilizado as seguintes consultas: \code{WebAssembly Comparison} para buscar trabalhos que realizem comparações no contexto de WebAssembly; \code{Emscripten OR Cheerp} para buscar trabalhos que referenciem os compiladores utilizados nesta pesquisa.
+
+Sobre WebAssembly, \thiscite{bringing_up}{Haas \textit{et al.}} é o documento científico que realiza o anúncio do WebAssembly e especifica suas características. Após a implementação do WebAssembly nos principais \textit{browsers}, foi realizado uma busca de diversos binários do WebAssembly para analisar a adoção da tecnologia e seus casos de uso em \thiscite{prevalence_in_wild}{Musch \textit{et al.}}. Ademais, em \thiscite{real_world_binaries}{Aaron \textit{et al.}} é expandido o estudo citado anteriormente, buscando uma quantidade maior de binários, nele é concluído que WebAssembly deixou sua infância de lado e está sendo adotado em diversos casos de uso.
+
+As duas últimas pesquisas citadas são as principais encontradas que realizam a comparação entre os dois compiladores da linguagem C e apresentam resultados divergentes entre si, estes resultados serão utilizados como comparação aos resultados anunciados na seção \ref{resultados}. Em resumo, há muitos trabalhos relacionados que realizam comparação entre WebAssembly e outros tecnologias, sendo JS e asm.js as principais. No entanto, há poucos trabalhos comparando os compiladores disponíveis para WebAssembly \cite{c_vs_rust}.
+
